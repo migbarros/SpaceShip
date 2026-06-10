@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //Adiciona a velocidade inicial
         GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, speed);
     }
 

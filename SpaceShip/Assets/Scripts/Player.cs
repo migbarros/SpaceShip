@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
         //Aplica na velocidade do RigidBody o vetor de botão multiplicando pela velocidade
         _rb.linearVelocity = _movement * _speed;
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))//Aciona o tiro
         {
             Instantiate(bullet, transform.position, transform.rotation);
         }
