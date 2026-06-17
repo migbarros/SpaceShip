@@ -6,9 +6,12 @@ public class Player : MonoBehaviour
     private Vector2 _movement;
     private Rigidbody2D _rb;
     public GameObject bullet;
+    public int life = 10;
+    private int _liveMax;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _liveMax = life;
         _rb = GetComponent<Rigidbody2D>();//Referenciar a física para não ser nula
     }
     // Update is called once per frame
@@ -24,5 +27,14 @@ public class Player : MonoBehaviour
             Instantiate(bullet, transform.position, transform.rotation);
         }
 
+    }
+    public void TakeDamege(int damage)
+    {
+        life -= damage;
+
+        if (life <= 0)
+        {
+            print("GameOver");
+        }
     }
 }

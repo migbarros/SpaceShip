@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
    [Min(1)]public float speed;
+    public int damage = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,7 +22,15 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             //Aqui colocaremos depois o dano causado ao player
+            collision.gameObject.GetComponent<Player>().TakeDamege(damage);
             Destroy(gameObject);//Destroi o inimigo quando colide com o player
         }
     }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
+
 }
+
